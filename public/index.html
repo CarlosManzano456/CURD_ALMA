@@ -378,8 +378,10 @@ body {
 
                             <div class="input-group">
                                 <i class='bx bxs-lock-alt'></i>
-                                <input type="number" name="Telefono" placeholder="Telefono" required>
+                                <input type="number" name="Telefono" id="telefono" placeholder="Telefono" required>
                             </div>
+
+
                             <div class="input-group">
                                 <i class='bx bxs-lock-alt'></i>
                                 <input type="password" name="Pass" placeholder="Contraseña" required>
@@ -477,6 +479,16 @@ body {
         setTimeout(() => {
             container.classList.add('sign-up')
         }, 200)
+
+
+        document.getElementById('telefono').addEventListener('input', function() {
+    var telefonoValue = this.value.trim();
+    if (telefonoValue.length !== 10) {
+        this.setCustomValidity("El número de teléfono debe tener exactamente 10 dígitos.");
+    } else {
+        this.setCustomValidity('');
+    }
+});
     </script>>
 </body>
 </html>

@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-md-5 offset-md-3 card bg-dark">
       <div class="card-body">
-        <form action="/EditarUsuario/<%= data.urs_id %>" method="POST">
+        <form action="/EditarUsuario/<%= data.urs_id %>" method="POST" onsubmit="return validateForm()">
           <input
             type="text"
             name="nombre"
@@ -14,22 +14,21 @@
             autofocus
           />
           <input
-            type="text"
+            type="email"
             name="email"
-            value="<%= data.urs_email%>"
+            value="<%= data.urs_email %>"
             placeholder="Address"
             class="form-control mb-3"
           />
           <input
             type="text"
             name="telefono"
-            value="<%= data.urs_telefono%>"
+            id="telefono"
+            value="<%= data.urs_telefono %>"
             placeholder="Phone"
             class="form-control mb-3"
           />
-
           <button type="submit" class="btn btn-primary">Salvar Cambios</button>
-
         </form>
       </div>
     </div>
@@ -37,3 +36,15 @@
 </div>
 
 <%- include("partials/_footer") %>
+
+<script>
+function validateForm() {
+    var telefonoInput = document.getElementById('telefono');
+    var telefonoValue = telefonoInput.value.replace(/\D/g, '');
+    if (telefonoValue.length !== 10 || isNaN(telefonoValue)) {
+        alert("El número de teléfono debe ser numérico y tener exactamente 10 dígitos.");
+        return false; // Detiene el envío del formulario si la validación falla
+    }
+    return true; // Permite el envío del formulario si la validación pasa
+}
+</script>

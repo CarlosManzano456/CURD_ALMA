@@ -14,18 +14,21 @@
                 </tr>
               </thead>
               <tbody>
-                <% if (data) { %> <% for(var i = 0; i < data.length; i++) {
+                <% 
+                  if (data) {
+                %> 
+                <% 
+                  for(var i = 0; i < data.length; i++) {
                 %>
                 <tr>
                   <td><center><%= (i + 1) %></center></td>
-                  <td><center><%= data[i].urs_nombre %></center></td>
-                  <td><center><%= data[i].urs_email %></center></td>
-                  <td><center><%= data[i].urs_telefono %></center></td>
+                  <td><center><%= data[i].urs_nombre%></center></td>
+                  <td><center><%= data[i].urs_email%></center></td>
+                  <td><center><%= data[i].urs_telefono%></center></td>
                   <td>
                     <center>
                       <a href="/EliminarUsuario/<%= data[i].urs_id %>" class="btn btn-danger">Eliminar</a>
-                    </center>
-                    
+                    </center>                    
                   </td>
                   <td>
                     <center>
@@ -33,12 +36,14 @@
                         Editar
                       </a>
                     </center>
-                    
-                    
                   </td>
-
                 </tr>
-                <% } %> <% } %>
+                <% 
+                  } 
+                %> 
+                <% 
+                  } 
+                %>
               </tbody>
             </table>
           </div>
